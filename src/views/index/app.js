@@ -2,6 +2,8 @@ import Vue from 'vue';
 import App from './app.vue';
 import 'muse-ui/lib/styles/base.less';
 import 'muse-ui/lib/styles/theme.less';
+import 'assets/css/global.less';
+import '../../fonts/iconfont.css';
 
 if (process.env === 'production') {
   window.apiready = function () {

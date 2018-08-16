@@ -1,12 +1,12 @@
 <template>
-  <div class="gzBodyer">
-    <div v-if="hasHeader" class="gzHeader" :style="{height:headerHeight}">
+  <div class="bodyer">
+    <div v-if="hasHeader" class="header" :style="{height:headerHeight,lineHeight:headerHeight}">
       <slot name="header"></slot>
     </div>
-    <div class="gzContent">
+    <div class="content">
       <slot></slot>
     </div>
-    <div v-if="hasFooter" class="gzFooter" :style="{height:footerHeight}">
+    <div v-if="hasFooter" class="footer" :style="{height:footerHeight}">
       <slot name="footer"></slot>
     </div>
   </div>
@@ -37,12 +37,20 @@ export default {
 };
 </script>
 <style lang="less" scoped>
-.gzBodyer {
+.bodyer {
   height: 100%;
   display: flex;
   flex-direction: column;
-  .gzContent{
+  .header,.content,.footer{
+    position: relative;
+  }
+  .header,.footer{
+    z-index: 2;
+  }
+  .content{
     flex: 1;
+    z-index: 1;
+    overflow: auto;
   }
 }
 </style>
