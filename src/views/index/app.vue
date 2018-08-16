@@ -1,52 +1,29 @@
 <template>
-<div>
-  <Button @click="handleClick">点击</Button>
-  <Dialog title="弹窗" width="360" :open="isOpen">
-     <h1>{{demo}}</h1>
-    <Button color="primary" @click="isOpen=false">关闭</Button>
-  </Dialog>
-</div>
+  <UIFrame>
+    <div slot="header">ok</div>
+    <div slot>oooo</div>
+  </UIFrame>
 </template>
 
 <script>
-import service from 'service';
-import { Button, Dialog } from 'muse-ui';
-
+import { UIFrame } from 'components';
 export default {
   data () {
     return {
-      demo: 'demo',
-      isOpen: false
     };
   },
   components: {
-    Button,
-    Dialog
+    UIFrame
   },
   methods: {
-    async query () {
-      const response = await service.demo({demo: 'this is a demo'});
-      switch (response.code) {
-        case 0:
-          this.demo = JSON.stringify(response.result);
-          break;
-        default:
-          break;
-      }
-    },
-    handleClick () {
-      this.isOpen = true;
-    }
   },
   mounted () {
-    this.query();
   }
 };
 </script>
 <style lang="less">
-@import url('../../assets/css/base.less');
-@main: #0096ff;
-h1{
-  color: @main;
-}
+@import url('../../assets/css/global.less');
+</style>
+<style lang="less" scoped>
+
 </style>
