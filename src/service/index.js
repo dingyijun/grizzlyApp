@@ -65,8 +65,8 @@ export default {
     return fetch({
       host: 'test.mangotmall.com',
       url: '/api/index/get_city',
-      params
-      // method: 'post'
+      params,
+      method: 'post'
     });
   }
 };

@@ -220,7 +220,7 @@ console.log('--------------------------------');
 console.log(process.env.NODE_ENV);
 console.log('--------------------------------');
 
-if (process.env.NODE_ENV !== 'development') {
+if (process.env.NODE_ENV === 'production') {
   module.exports.devtool = false;
   // http://vue-loader.vuejs.org/en/workflow/production.html
   module.exports.plugins = (module.exports.plugins || []).concat([

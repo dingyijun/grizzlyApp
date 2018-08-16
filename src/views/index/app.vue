@@ -26,10 +26,9 @@ export default {
   methods: {
     async query () {
       const response = await service.demo({demo: 'this is a demo'});
-      console.log(response);
       switch (response.code) {
         case 0:
-          this.demo = response.result.demo;
+          this.demo = JSON.stringify(response.result);
           break;
         default:
           break;
@@ -45,7 +44,7 @@ export default {
 };
 </script>
 <style lang="less">
-@import url('../../../assets/css/base.less');
+@import url('../../assets/css/base.less');
 @main: #0096ff;
 h1{
   color: @main;
